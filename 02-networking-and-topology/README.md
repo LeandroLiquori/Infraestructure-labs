@@ -1,7 +1,7 @@
 # 02 - Plan de Redes y Topología Lógica (VLANs & Routing)
 
 ## 1. Diagrama de Arquitectura
-![Topología de Red](topology.png)
+![Topología de Red](DiagramaDeRed.drawio.png)
 
 ## 2. Matriz de Direccionamiento IP (IP Scheme)
 
