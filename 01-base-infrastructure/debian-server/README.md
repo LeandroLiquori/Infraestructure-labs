@@ -18,3 +18,6 @@ Se configuró la placa de red virtual en modo Bridged para exponer el servidor d
 ### Gestión de Accesos y Privilegios
 - **Desactivación de Root Directo:** Se instaló y configuró `sudo`, asignando al usuario estándar al grupo de administración mediante `usermod -aG sudo`.
 - **Autenticación en GitHub:** Se generó un par de llaves criptográficas asimétricas Ed25519 (`ssh-keygen -t ed25519`) para autenticación por firma *Challenge-Response*, eliminando el uso de contraseñas estáticas en la terminal.
+
+### Hardening
+- **Hardening de SSH:** Se deshabilitó el acceso directo del superusuario modificando `PermitRootLogin no` en `/etc/ssh/sshd_config`, obligando a los administradores a ingresar con credenciales personales y escalar privilegios vía `sudo`.
