@@ -3,14 +3,14 @@
 ## 1. Diagrama de Arquitectura
 ![Topología de Red](DiagramaDeRed.drawio.png)
 
-## 2. Matriz de Direccionamiento IP (IP Scheme)
+## 📊 Tabla de Subredes e Infraestructura
 
-| Segmento / VLAN | ID VLAN | Red / CIDR | Gateway (Router) | Host Asignado | IP Host |
+| VLAN | Nombre | Subred | IP Gateway | IP Servidores | Función Principal |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **DMZ** | 10 | `10.10.10.0/24` | `10.10.10.1` | `srv-debian01` | `10.10.10.10` |
-| **Management** | 20 | `10.10.20.0/24` | `10.10.20.1` | `srv-freeipa01` | `10.10.20.10` |
-| **LAN Corporativa** | 30 | `10.10.30.0/24` | `10.10.30.1` | `PC-W11-01` | `10.10.30.10` |
-| **SOC & Monitoreo** | 40 | `10.10.40.0/24` | `10.10.40.1` | `srv-soc01` | `10.10.40.10` |
+| **VLAN 10** | DMZ | `10.10.10.0/24` | `10.10.10.1` | `10.10.10.10` (`srv-debian01`) | Servidor expuesto (DST-NAT 2222) |
+| **VLAN 20** | MANAGEMENT | `10.10.20.0/24` | `10.10.20.1` | `10.10.20.10` (`srv-dc01`) | Active Directory (lab.local) + DNS |
+| **VLAN 30** | LAN | `10.10.30.0/24` | `10.10.30.1` | Dynamic (DHCP) | Clientes / Workstations |
+| **VLAN 40** | SOC | `10.10.40.0/24` | `10.10.40.1` | - | Monitoreo y SIEM |
 
 ## 3. Políticas de Tráfico y Aislamiento (Firewall Policy Draft)
 - **VLAN 10 (DMZ):** Acceso público/externo permitido. Aislamiento estricto hacia VLAN 20 y VLAN 40.
