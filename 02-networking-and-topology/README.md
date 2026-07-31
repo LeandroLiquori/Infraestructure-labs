@@ -31,7 +31,7 @@ Se implementó un esquema de **Defensa en Profundidad** utilizando el motor de i
 | **0** | `accept` | `forward` | - | - | - | `connection-state=established,related` | **Stateful:** Permite respuestas legítimas de conexiones iniciadas. |
 | **1** | `drop` | `forward` | - | - | - | `connection-state=invalid` | Descarta basura de red y paquetes corruptos de entrada. |
 | **2** | `accept` | `forward` | `10.10.0.0/16` | `10.10.20.10` | UDP `53` | - | Permite consultas DNS de todas las VLANs al Active Directory. |
-| **3** | `accept` | `forward` | - | - | - | `In: ether3` / `Out: ether1` | Permite salida a Internet para clientes de la VLAN 30 (LAN). |
+| **3** | `accept` | `forward` | - | - | - | `Out: ether1` | Permite salida a Internet para clientes de la VLANs. |
 | **4** | `accept` | `input` | `10.10.40.10` | `10.10.0.0/16` | UDP `161` | - | Telemetría SNMP del RouterOS exclusiva para el Zabbix Server. |
 | **5** | `accept` | `forward` | `10.10.40.10` | `10.10.0.0/16` | TCP `10050` | - | Permite recolección pasiva de métricas desde el SOC a Agentes. |
 | **6** | `accept` | `forward` | - | - | - | `connection-nat-state=dstnat` | **Acceso Remoto:** Permite tráfico que coincida con reglas válidas de DST-NAT (Termius/SSH). |
